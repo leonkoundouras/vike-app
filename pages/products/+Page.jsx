@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../components/AuthContext'
 import Layout from '../../components/Layout'
+import '../../styles/responsive.css'
 
 const styles = {
   container: {
-    maxWidth: '1400px',
-    margin: '0 auto',
-    padding: '2rem'
+    margin: '0 auto'
   },
   header: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '2rem',
-    padding: '2rem',
     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     borderRadius: '16px',
     color: 'white',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+    flexDirection: 'column',
+    textAlign: 'center',
+    gap: '1rem'
   },
   title: {
-    fontSize: '2.5rem',
     fontWeight: 'bold',
     margin: 0,
     textShadow: '0 2px 4px rgba(0,0,0,0.3)'
   },
   subtitle: {
-    fontSize: '1.1rem',
     opacity: 0.9,
     marginTop: '0.5rem'
   },
@@ -548,11 +546,11 @@ export default function ProductsPage() {
 
   return (
     <Layout>
-      <div style={styles.container}>
+      <div style={styles.container} className="products-container">
         {/* Header */}
-        <div style={styles.header}>
+        <div style={styles.header} className="products-header">
           <div>
-            <h1 style={styles.title}>🛍️ Product Catalog</h1>
+            <h1 style={styles.title} className="products-title">🛍️ Product Catalog</h1>
             <p style={styles.subtitle}>Browse and filter your product inventory</p>
           </div>
           <button 
@@ -564,16 +562,17 @@ export default function ProductsPage() {
         </div>
 
         {/* Filters */}
-        <div style={styles.filtersContainer}>
+        <div style={styles.filtersContainer} className="products-filters">
           <div style={styles.filtersTitle}>
             🔍 Filters & Search
           </div>
           
-          <div style={styles.filtersGrid}>
-            <div style={styles.filterGroup}>
+          <div style={styles.filtersGrid} className="products-filter-row">
+            <div style={styles.filterGroup} className="products-filter-group">
               <label style={styles.filterLabel}>Category</label>
               <select
                 style={styles.filterSelect}
+                className="products-filter-select"
                 value={filters.category}
                 onChange={(e) => handleFilterChange('category', e.target.value)}
               >
@@ -586,43 +585,47 @@ export default function ProductsPage() {
               </select>
             </div>
 
-            <div style={styles.filterGroup}>
+            <div style={styles.filterGroup} className="products-filter-group">
               <label style={styles.filterLabel}>Min Price</label>
               <input
                 type="number"
                 style={styles.filterInput}
+                className="products-filter-input"
                 placeholder="$0"
                 value={filters.minPrice}
                 onChange={(e) => handleFilterChange('minPrice', e.target.value)}
               />
             </div>
 
-            <div style={styles.filterGroup}>
+            <div style={styles.filterGroup} className="products-filter-group">
               <label style={styles.filterLabel}>Max Price</label>
               <input
                 type="number"
                 style={styles.filterInput}
+                className="products-filter-input"
                 placeholder="$999999"
                 value={filters.maxPrice}
                 onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
               />
             </div>
 
-            <div style={styles.filterGroup}>
+            <div style={styles.filterGroup} className="products-filter-group">
               <label style={styles.filterLabel}>Search</label>
               <input
                 type="text"
                 style={styles.filterInput}
+                className="products-filter-input"
                 placeholder="Search products..."
                 value={filters.search}
                 onChange={(e) => handleFilterChange('search', e.target.value)}
               />
             </div>
 
-            <div style={styles.filterGroup}>
+            <div style={styles.filterGroup} className="products-filter-group">
               <label style={styles.filterLabel}>Sort By</label>
               <select
                 style={styles.filterSelect}
+                className="products-filter-select"
                 value={`${filters.sortBy}-${filters.sortOrder}`}
                 onChange={(e) => {
                   const [sortBy, sortOrder] = e.target.value.split('-')
@@ -700,13 +703,14 @@ export default function ProductsPage() {
             )}
           </div>
         ) : (
-          <div style={styles.productsGrid}>
+          <div style={styles.productsGrid} className="products-grid">
             {products.map(product => {
               const stockStatus = getStockStatus(product.stock)
               return (
                 <div
                   key={product.id}
                   style={styles.productCard}
+                  className="product-card"
                   onMouseEnter={(e) => Object.assign(e.currentTarget.style, styles.productCardHover)}
                   onMouseLeave={(e) => Object.assign(e.currentTarget.style, styles.productCard)}
                   onClick={() => window.location.href = `/products/${product.id}`}
@@ -720,9 +724,10 @@ export default function ProductsPage() {
                       src={product.image} 
                       alt={product.name}
                       style={styles.productImage}
+                      className="product-image"
                     />
                   ) : (
-                    <div style={styles.productImagePlaceholder}>
+                    <div style={styles.productImagePlaceholder} className="product-image">
                       📷
                     </div>
                   )}
@@ -747,9 +752,10 @@ export default function ProductsPage() {
                       </span>
                     </div>
                     
-                    <div style={styles.productActions}>
+                    <div style={styles.productActions} className="product-actions">
                       <button
                         style={styles.viewBtn}
+                        className="product-action-btn"
                         onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
                         onMouseLeave={(e) => e.target.style.backgroundColor = '#007bff'}
                         onClick={(e) => {
@@ -761,6 +767,7 @@ export default function ProductsPage() {
                       </button>
                       <button
                         style={styles.editBtn}
+                        className="product-action-btn"
                         onMouseEnter={(e) => e.target.style.backgroundColor = '#218838'}
                         onMouseLeave={(e) => e.target.style.backgroundColor = '#28a745'}
                         onClick={(e) => {

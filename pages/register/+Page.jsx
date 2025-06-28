@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../components/AuthContext'
+import '../../styles/responsive.css'
 
 const styles = {
   container: {

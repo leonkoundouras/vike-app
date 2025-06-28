@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../../../components/AuthContext'
 import Layout from '../../../../components/Layout'
+import '../../../../styles/responsive.css'
 
 const styles = {
   container: {
