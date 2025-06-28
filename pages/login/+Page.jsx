@@ -1,74 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../components/AuthContext'
 import '../../styles/responsive.css'
-
-const styles = {
-  container: {
-    maxWidth: '400px',
-    margin: '2rem auto',
-    padding: '2rem',
-    backgroundColor: 'white',
-    borderRadius: '8px',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-  },
-  title: {
-    textAlign: 'center',
-    marginBottom: '2rem',
-    color: '#2c3e50'
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem'
-  },
-  formGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.5rem'
-  },
-  label: {
-    fontWeight: 'bold',
-    color: '#34495e'
-  },
-  input: {
-    padding: '0.75rem',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-    fontSize: '1rem'
-  },
-  button: {
-    backgroundColor: '#3498db',
-    color: 'white',
-    border: 'none',
-    padding: '0.75rem',
-    borderRadius: '4px',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    marginTop: '1rem'
-  },
-  buttonDisabled: {
-    backgroundColor: '#bdc3c7',
-    cursor: 'not-allowed'
-  },
-  error: {
-    color: '#e74c3c',
-    fontSize: '0.9rem',
-    marginTop: '0.5rem'
-  },
-  success: {
-    color: '#27ae60',
-    fontSize: '0.9rem',
-    marginTop: '0.5rem'
-  },
-  link: {
-    textAlign: 'center',
-    marginTop: '1rem'
-  },
-  linkText: {
-    color: '#3498db',
-    textDecoration: 'none'
-  }
-}
+import '../../styles/wordpress.css'
+import '../../styles/responsive-wp.css'
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -91,9 +25,11 @@ export default function LoginPage() {
   // Don't render the form if we're still checking auth or if user is authenticated
   if (authLoading) {
     return (
-      <div style={styles.container}>
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
-          Loading...
+      <div className="wp-login-container">
+        <div className="wp-login-form">
+          <div style={{ textAlign: 'center', padding: '1rem' }}>
+            Loading...
+          </div>
         </div>
       </div>
     )
@@ -101,9 +37,11 @@ export default function LoginPage() {
 
   if (isAuthenticated) {
     return (
-      <div style={styles.container}>
-        <div style={{ textAlign: 'center', padding: '2rem' }}>
-          Redirecting...
+      <div className="wp-login-container">
+        <div className="wp-login-form">
+          <div style={{ textAlign: 'center', padding: '1rem' }}>
+            Redirecting...
+          </div>
         </div>
       </div>
     )
@@ -176,65 +114,61 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={styles.container} className="auth-container">
-      <h1 style={styles.title} className="auth-title">Login</h1>
-      
-      <form onSubmit={handleSubmit} style={styles.form} className="auth-form">
-        <div style={styles.formGroup} className="auth-form-group">
-          <label htmlFor="email" style={styles.label}>Email</label>
+    <div className="wp-login-container">
+      <div className="wp-login-form">
+        <div className="wp-login-logo">
+          <h2 style={{ margin: 0, color: 'var(--wp-primary)' }}>VikePress</h2>
+        </div>
+        
+        <h1 className="wp-login-title">Log In</h1>
+        
+        <form onSubmit={handleSubmit}>
           <input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            style={styles.input}
-            className="auth-input"
-            placeholder="Enter your email"
+            className="wp-login-input"
+            placeholder="Email Address"
             disabled={loading}
           />
-          {errors.email && <div style={styles.error}>{errors.email}</div>}
-        </div>
+          {errors.email && <div className="wp-notice wp-notice-error" style={{ padding: '0.5rem', marginBottom: '1rem', fontSize: '0.9rem' }}>{errors.email}</div>}
 
-        <div style={styles.formGroup} className="auth-form-group">
-          <label htmlFor="password" style={styles.label}>Password</label>
           <input
             type="password"
             id="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
-            style={styles.input}
-            className="auth-input"
-            placeholder="Enter your password"
+            className="wp-login-input"
+            placeholder="Password"
             disabled={loading}
           />
-          {errors.password && <div style={styles.error}>{errors.password}</div>}
+          {errors.password && <div className="wp-notice wp-notice-error" style={{ padding: '0.5rem', marginBottom: '1rem', fontSize: '0.9rem' }}>{errors.password}</div>}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="wp-login-button"
+            style={loading ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
+          >
+            {loading ? 'Logging in...' : 'Log In'}
+          </button>
+
+          {message && (
+            <div className={message.includes('successful') ? "wp-notice wp-notice-success" : "wp-notice wp-notice-error"} style={{ marginTop: '1rem', padding: '0.5rem', fontSize: '0.9rem' }}>
+              {message}
+            </div>
+          )}
+        </form>
+
+        <div className="wp-login-footer">
+          Don't have an account?{' '}
+          <a href="/register">
+            Register here
+          </a>
         </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            ...styles.button,
-            ...(loading ? styles.buttonDisabled : {})
-          }}
-        >
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-
-        {message && (
-          <div style={message.includes('successful') ? styles.success : styles.error}>
-            {message}
-          </div>
-        )}
-      </form>
-
-      <div style={styles.link}>
-        Don't have an account?{' '}
-        <a href="/register" style={styles.linkText}>
-          Register here
-        </a>
       </div>
     </div>
   )

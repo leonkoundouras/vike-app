@@ -1,5 +1,31 @@
 /* Additional responsive styles for WordPress-like layout */
 
+/* Login and Register responsive styles */
+@media (max-width: 480px) {
+  .wp-login-form {
+    width: 90% !important;
+    padding: 1.5rem !important;
+    margin: 0 auto;
+  }
+  
+  .wp-login-title {
+    font-size: 1.3rem !important;
+  }
+  
+  .wp-login-input {
+    padding: 0.6rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .wp-login-button {
+    padding: 0.6rem !important;
+  }
+  
+  .wp-login-footer {
+    font-size: 0.85rem !important;
+  }
+}
+
 /* Mobile styles (up to 600px) */
 @media (max-width: 600px) {
   .wp-products-grid {
