@@ -330,6 +330,45 @@ const styles = {
     alignItems: 'center',
     gap: '0.5rem',
     boxShadow: '0 4px 15px rgba(40, 167, 69, 0.3)'
+  },
+  productActions: {
+    display: 'flex',
+    gap: '0.5rem',
+    marginTop: '1rem',
+    paddingTop: '1rem',
+    borderTop: '1px solid #e9ecef'
+  },
+  viewBtn: {
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    padding: '0.5rem 1rem',
+    borderRadius: '6px',
+    fontSize: '0.9rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    transition: 'all 0.2s',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.25rem',
+    flex: 1,
+    justifyContent: 'center'
+  },
+  editBtn: {
+    backgroundColor: '#28a745',
+    color: 'white',
+    border: 'none',
+    padding: '0.5rem 1rem',
+    borderRadius: '6px',
+    fontSize: '0.9rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    transition: 'all 0.2s',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.25rem',
+    flex: 1,
+    justifyContent: 'center'
   }
 }
 
@@ -706,6 +745,32 @@ export default function ProductsPage() {
                       <span style={{color: '#6c757d', fontSize: '0.9rem'}}>
                         {product.stock} units
                       </span>
+                    </div>
+                    
+                    <div style={styles.productActions}>
+                      <button
+                        style={styles.viewBtn}
+                        onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
+                        onMouseLeave={(e) => e.target.style.backgroundColor = '#007bff'}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          window.location.href = `/products/${product.id}`
+                        }}
+                      >
+                        👁️ View
+                      </button>
+                      <button
+                        style={styles.editBtn}
+                        onMouseEnter={(e) => e.target.style.backgroundColor = '#218838'}
+                        onMouseLeave={(e) => e.target.style.backgroundColor = '#28a745'}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          alert('Edit functionality coming soon! For now, you can view product details.')
+                          window.location.href = `/products/${product.id}`
+                        }}
+                      >
+                        ✏️ Edit
+                      </button>
                     </div>
                   </div>
                 </div>

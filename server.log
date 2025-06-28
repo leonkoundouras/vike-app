@@ -5,14 +5,17 @@
 Initialized mock products for user ID: 1751134209911
 Initialized mock products for user ID: 1751134311621
 Initialized mock products for user ID: demo-user-id
-6:22:51 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
+7:29:20 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
 Server running at http://localhost:12001
-6:24:57 PM [vike][request(1)] HTTP request: /
-6:24:57 PM [vike][request(1)] HTTP response / 200
-6:25:02 PM [vike][request(2)] HTTP request: /login
-6:25:02 PM [vike][request(2)] HTTP response /login 200
-6:25:03 PM [vike][request(3)] HTTP request: /login
-6:25:03 PM [vike][request(3)] HTTP response /login 200
-6:26:37 PM [vite] hmr update /components/AuthContext.jsx
-6:26:45 PM [vite] hmr update /components/AuthContext.jsx
-6:27:13 PM [vite] hmr update /components/AuthContext.jsx
+7:29:32 PM [vike][request(1)] HTTP request: /
+7:29:32 PM [vike][request(1)] HTTP response / 200
+7:31:20 PM [vike][request(2)] HTTP request: /
+7:31:20 PM [vike][request(2)] HTTP response / 200
+7:50:36 PM [vike][request(3)] HTTP request: /products
+7:50:36 PM [vike][request(3)] HTTP response /products 200
+7:51:02 PM [vike][request(4)] HTTP request: /products/mock-12
+7:51:02 PM [vike][request(4)] HTTP response /products/mock-12 200
+7:52:38 PM [vite] hmr update /pages/products/+Page.jsx
+7:53:10 PM [vite] hmr update /pages/products/+Page.jsx
+7:53:25 PM [vite] hmr update /pages/products/+Page.jsx
+7:53:34 PM [vite] hmr update /pages/products/+Page.jsx
