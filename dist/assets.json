@@ -1,0 +1,61 @@
+{
+  "_chunk-!~{004}~.js": {
+    "file": "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+    "src": "_chunk-!~{004}~.js"
+  },
+  "_chunk-D5dLUlHE.js": {
+    "file": "assets/chunks/chunk-D5dLUlHE.js",
+    "name": "execHook"
+  },
+  "_chunk-DtUMuJzA.js": {
+    "file": "assets/chunks/chunk-DtUMuJzA.js",
+    "name": "Loading",
+    "imports": [
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
+    "file": "assets/entries/entry-client-routing.wEBRgnNt.js",
+    "name": "entries/entry-client-routing",
+    "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
+    "isEntry": true,
+    "imports": [
+      "_chunk-D5dLUlHE.js"
+    ],
+    "dynamicImports": [
+      "virtual:vike:pageConfigLazy:client:/pages/about",
+      "virtual:vike:pageConfigLazy:client:/pages/index"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/about": {
+    "file": "assets/entries/pages_about.CVFQ3uzD.js",
+    "name": "entries/pages/about",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/about",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-DtUMuJzA.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/index": {
+    "file": "assets/entries/pages_index.0Uk9IFzB.js",
+    "name": "entries/pages/index",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/index",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-DtUMuJzA.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  }
+}

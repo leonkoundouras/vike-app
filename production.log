@@ -1,0 +1,5 @@
+
+> vike-ssr-app@1.0.0 start
+> NODE_ENV=production node server-production.js
+
+Production server running at http://localhost:3000
