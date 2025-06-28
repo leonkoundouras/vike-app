@@ -1,0 +1,310 @@
+/* Additional responsive styles for WordPress-like layout */
+
+/* Mobile styles (up to 600px) */
+@media (max-width: 600px) {
+  .wp-products-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .wp-product-card {
+    max-width: 100%;
+  }
+  
+  .wp-product-image {
+    height: 180px;
+  }
+  
+  .wp-dashboard-widgets {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .wp-form-row {
+    flex-direction: column;
+  }
+  
+  .wp-form-column {
+    width: 100%;
+  }
+  
+  .wp-page-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .wp-card-header {
+    padding: 0.75rem;
+  }
+  
+  .wp-card-content {
+    padding: 0.75rem;
+  }
+  
+  .wp-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .wp-table th, 
+  .wp-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .wp-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Tablet styles (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .wp-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .wp-dashboard-widgets {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .wp-main {
+    padding: 1.25rem;
+  }
+  
+  .wp-page-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Desktop styles (901px and above) */
+@media (min-width: 901px) {
+  .wp-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .wp-dashboard-widgets {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .wp-main {
+    padding: 2rem;
+  }
+  
+  .wp-page-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Large desktop styles (1200px and above) */
+@media (min-width: 1200px) {
+  .wp-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .wp-main {
+    padding: 2.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .wp-header,
+  .wp-sidebar,
+  .wp-mobile-overlay,
+  .wp-menu-toggle,
+  .wp-product-actions,
+  .wp-pagination,
+  .wp-notice {
+    display: none !important;
+  }
+  
+  .wp-main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .wp-content-area {
+    margin-top: 0 !important;
+  }
+  
+  .wp-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+  }
+  
+  .wp-product-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  body {
+    background-color: white !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .wp-sidebar-link,
+  .wp-top-nav-item,
+  .wp-product-card,
+  button,
+  .button,
+  .wp-button,
+  a.wp-pagination-item {
+    padding: 0.75rem !important;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .wp-sidebar-link,
+  .wp-top-nav-item {
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .wp-product-card:hover {
+    transform: none !important;
+  }
+  
+  .wp-product-card:active {
+    transform: translateY(-2px);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body.wp-dark-mode {
+    --wp-primary: #0073aa;
+    --wp-primary-hover: #00a0d2;
+    --wp-secondary: #1d2327;
+    --wp-text: #f0f0f1;
+    --wp-light-text: #bbc8d4;
+    --wp-bg: #1d2327;
+    --wp-light-bg: #2c3338;
+    --wp-border: #3c434a;
+  }
+  
+  body.wp-dark-mode .wp-card,
+  body.wp-dark-mode .wp-product-card,
+  body.wp-dark-mode .wp-dashboard-widget {
+    background-color: var(--wp-light-bg);
+    border-color: var(--wp-border);
+  }
+  
+  body.wp-dark-mode .wp-card-header {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-color: var(--wp-border);
+  }
+  
+  body.wp-dark-mode .wp-table th,
+  body.wp-dark-mode .wp-table td {
+    border-color: var(--wp-border);
+  }
+  
+  body.wp-dark-mode .wp-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .wp-sidebar-link.active {
+    border-left-width: 3px;
+  }
+  
+  .wp-product-card {
+    border-width: 2px;
+  }
+  
+  .wp-button,
+  button,
+  .button {
+    border: 1px solid transparent;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Additional accessibility improvements */
+.wp-sidebar-link:focus,
+.wp-top-nav-item:focus,
+.wp-button:focus,
+button:focus,
+.button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--wp-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for keyboard users */
+.wp-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--wp-primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+
+.wp-skip-link:focus {
+  top: 0;
+}
+
+/* Responsive table improvements */
+@media (max-width: 600px) {
+  .wp-responsive-table {
+    display: block;
+  }
+  
+  .wp-responsive-table thead {
+    display: none;
+  }
+  
+  .wp-responsive-table tbody {
+    display: block;
+  }
+  
+  .wp-responsive-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid var(--wp-border);
+    border-radius: 3px;
+  }
+  
+  .wp-responsive-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--wp-border);
+    padding: 0.75rem;
+    text-align: right;
+  }
+  
+  .wp-responsive-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .wp-responsive-table td:last-child {
+    border-bottom: none;
+  }
+}
