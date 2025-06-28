@@ -87,3 +87,5 @@ Server running at http://localhost:12001
 8:29:18 PM [vike][request(25)] HTTP response /products 200
 8:29:57 PM [vike][request(26)] HTTP request: /products/mock-11/edit
 8:29:57 PM [vike][request(26)] HTTP response /products/mock-11/edit 200
+8:31:07 PM [vike][request(27)] HTTP request: /products
+8:31:07 PM [vike][request(27)] HTTP response /products 200
