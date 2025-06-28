@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from './AuthContext'
 
 const styles = {
@@ -55,30 +55,189 @@ const styles = {
     padding: '2rem',
     maxWidth: '1200px',
     margin: '0 auto'
+  },
+  categoryNav: {
+    backgroundColor: '#34495e',
+    padding: '0.75rem 2rem',
+    borderTop: '1px solid #2c3e50'
+  },
+  categoryList: {
+    display: 'flex',
+    gap: '1rem',
+    alignItems: 'center',
+    flexWrap: 'wrap'
+  },
+  categoryLabel: {
+    color: '#bdc3c7',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    marginRight: '0.5rem'
+  },
+  categoryLink: {
+    color: '#ecf0f1',
+    textDecoration: 'none',
+    padding: '0.4rem 0.8rem',
+    borderRadius: '15px',
+    fontSize: '0.85rem',
+    transition: 'all 0.2s',
+    border: '1px solid transparent',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.3rem'
+  },
+  categoryLinkHover: {
+    backgroundColor: '#3498db',
+    color: 'white',
+    transform: 'translateY(-1px)'
+  },
+  categoryLinkActive: {
+    backgroundColor: '#2980b9',
+    color: 'white',
+    border: '1px solid #3498db'
+  },
+  categoryCount: {
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    padding: '0.1rem 0.4rem',
+    borderRadius: '10px',
+    fontSize: '0.75rem',
+    fontWeight: '600'
+  },
+  dropdown: {
+    position: 'relative',
+    display: 'inline-block'
+  },
+  dropdownButton: {
+    backgroundColor: 'transparent',
+    color: 'white',
+    border: '1px solid rgba(255,255,255,0.3)',
+    padding: '0.5rem 1rem',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '0.9rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    transition: 'all 0.2s'
+  },
+  dropdownContent: {
+    position: 'absolute',
+    top: '100%',
+    right: 0,
+    backgroundColor: 'white',
+    minWidth: '200px',
+    boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+    borderRadius: '8px',
+    zIndex: 1000,
+    border: '1px solid #ddd',
+    marginTop: '0.5rem'
+  },
+  dropdownItem: {
+    color: '#2c3e50',
+    padding: '0.75rem 1rem',
+    textDecoration: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    transition: 'background-color 0.2s',
+    borderBottom: '1px solid #eee'
+  },
+  dropdownItemHover: {
+    backgroundColor: '#f8f9fa'
   }
 }
 
 export default function Layout({ children }) {
   const { user, logout, isAuthenticated } = useAuth()
+  const [categories, setCategories] = useState([])
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false)
+  const [hoveredCategory, setHoveredCategory] = useState(null)
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchCategories()
+    }
+  }, [isAuthenticated])
+
+  const fetchCategories = async () => {
+    try {
+      const token = localStorage.getItem('token')
+      const response = await fetch('/api/products/categories', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      const data = await response.json()
+      
+      if (data.success) {
+        setCategories(data.data.categories)
+      }
+    } catch (err) {
+      console.error('Failed to fetch categories:', err)
+    }
+  }
 
   const handleLogout = () => {
     logout()
     window.location.href = '/login'
   }
 
+  const handleCategoryClick = (categoryName) => {
+    const params = new URLSearchParams()
+    params.set('category', categoryName)
+    window.location.href = `/products?${params.toString()}`
+  }
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
         <a href="/" style={styles.logo}>
-          Vike Product Manager
+          🛍️ Vike Product Manager
         </a>
         
         <nav style={styles.nav}>
           {isAuthenticated ? (
             <>
               <a href="/products" style={styles.navLink}>
-                My Products
+                📦 All Products
               </a>
+              <div style={styles.dropdown}>
+                <button 
+                  style={styles.dropdownButton}
+                  onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
+                >
+                  🏷️ Categories {showCategoryDropdown ? '▲' : '▼'}
+                </button>
+                {showCategoryDropdown && (
+                  <div style={styles.dropdownContent}>
+                    <a 
+                      href="/products" 
+                      style={styles.dropdownItem}
+                      onClick={() => setShowCategoryDropdown(false)}
+                    >
+                      <span>All Categories</span>
+                      <span style={styles.categoryCount}>
+                        {categories.reduce((sum, cat) => sum + cat.count, 0)}
+                      </span>
+                    </a>
+                    {categories.map(category => (
+                      <a
+                        key={category.name}
+                        href={`/products?category=${encodeURIComponent(category.name)}`}
+                        style={{
+                          ...styles.dropdownItem,
+                          ...(hoveredCategory === category.name ? styles.dropdownItemHover : {})
+                        }}
+                        onMouseEnter={() => setHoveredCategory(category.name)}
+                        onMouseLeave={() => setHoveredCategory(null)}
+                        onClick={() => setShowCategoryDropdown(false)}
+                      >
+                        <span>{category.name}</span>
+                        <span style={styles.categoryCount}>{category.count}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
               <div style={styles.userInfo}>
                 <span>Welcome, {user?.name}!</span>
                 <button 
@@ -101,10 +260,70 @@ export default function Layout({ children }) {
           )}
         </nav>
       </header>
+
+      {/* Category Navigation Bar */}
+      {isAuthenticated && categories.length > 0 && (
+        <div style={styles.categoryNav}>
+          <div style={styles.categoryList}>
+            <span style={styles.categoryLabel}>Quick Browse:</span>
+            <a 
+              href="/products" 
+              style={{
+                ...styles.categoryLink,
+                ...(window.location.pathname === '/products' && !window.location.search ? styles.categoryLinkActive : {})
+              }}
+            >
+              🏠 All Products
+              <span style={styles.categoryCount}>
+                {categories.reduce((sum, cat) => sum + cat.count, 0)}
+              </span>
+            </a>
+            {categories.slice(0, 6).map(category => (
+              <a
+                key={category.name}
+                href={`/products?category=${encodeURIComponent(category.name)}`}
+                style={styles.categoryLink}
+                onMouseEnter={(e) => Object.assign(e.target.style, styles.categoryLinkHover)}
+                onMouseLeave={(e) => Object.assign(e.target.style, styles.categoryLink)}
+              >
+                {getCategoryIcon(category.name)} {category.name}
+                <span style={styles.categoryCount}>{category.count}</span>
+              </a>
+            ))}
+            {categories.length > 6 && (
+              <span style={{...styles.categoryLink, cursor: 'default', opacity: 0.7}}>
+                +{categories.length - 6} more...
+              </span>
+            )}
+          </div>
+        </div>
+      )}
       
       <main style={styles.main}>
         {children}
       </main>
     </div>
   )
+}
+
+// Helper function to get category icons
+function getCategoryIcon(categoryName) {
+  const icons = {
+    'Electronics': '📱',
+    'Wearables': '⌚',
+    'Furniture': '🪑',
+    'Kitchen': '🍳',
+    'Audio': '🎧',
+    'Photography': '📷',
+    'Smart Home': '🏠',
+    'Outdoor': '🏕️',
+    'Home & Garden': '🌱',
+    'Gaming': '🎮',
+    'Sports': '⚽',
+    'Books': '📚',
+    'Clothing': '👕',
+    'Beauty': '💄',
+    'Health': '💊'
+  }
+  return icons[categoryName] || '📦'
 }

@@ -2,48 +2,17 @@
 > vike-ssr-app@1.0.0 dev
 > node server.js
 
-4:11:42 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
+6:09:40 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
 Server running at http://localhost:12001
-4:12:05 PM [vike][request(1)] HTTP request: /
-4:12:05 PM [vike][request(1)] HTTP response / 200
-4:12:05 PM [vike][request(2)] HTTP request: /
-4:12:05 PM [vike][request(2)] HTTP response / 200
-4:12:08 PM [vike][request(3)] HTTP request: /
-4:12:08 PM [vike][request(3)] HTTP response / 200
-ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
-    at Object.xForwardedForHeader (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:157:13)
-    at Object.wrappedValidations.<computed> [as xForwardedForHeader] (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:369:22)
-    at Object.keyGenerator (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:630:20)
-    at file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:682:32
-    at file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:663:5 {
-  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
-  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
-}
-4:13:01 PM [vike][request(4)] HTTP request: /products
-4:13:01 PM [vike][request(4)] HTTP response /products 200
-4:13:17 PM [vike][request(5)] HTTP request: /products/mock-12/index.pageContext.json
-4:13:17 PM [vike][request(5)] HTTP response /products/mock-12/index.pageContext.json 200
-4:14:39 PM [vike][request(6)] HTTP request: /products/mock-12/index.pageContext.json
-4:14:39 PM [vike][request(6)] HTTP response /products/mock-12/index.pageContext.json 200
-4:14:56 PM [vike][request(7)] HTTP request: /
-4:14:56 PM [vike][request(7)] HTTP response / 200
-4:15:50 PM [vike][request(8)] HTTP request: /products/mock-12/index.pageContext.json
-4:15:50 PM [vike][request(8)] HTTP response /products/mock-12/index.pageContext.json 200
-4:16:56 PM [vike][request(9)] HTTP request: /
-4:16:56 PM [vike][request(9)] HTTP response / 200
-4:16:58 PM [vike][request(10)] HTTP request: /products/mock-12/index.pageContext.json
-4:16:58 PM [vike][request(10)] HTTP response /products/mock-12/index.pageContext.json 200
-4:18:05 PM [vike][request(11)] HTTP request: /products/mock-12/index.pageContext.json
-4:18:05 PM [vike][request(11)] HTTP response /products/mock-12/index.pageContext.json 200
-4:18:27 PM [vike][request(12)] HTTP request: /
-4:18:27 PM [vike][request(12)] HTTP response / 200
-4:21:30 PM [vike][request(13)] HTTP request: /
-4:21:30 PM [vike][request(13)] HTTP response / 200
-4:22:34 PM [vike][request(14)] HTTP request: /
-4:22:34 PM [vike][request(14)] HTTP response / 200
-4:22:35 PM [vike][request(15)] HTTP request: /
-4:22:35 PM [vike][request(15)] HTTP response / 200
-4:38:36 PM [vike][request(16)] HTTP request: /
-4:38:36 PM [vike][request(16)] HTTP response / 200
-4:38:36 PM [vike][request(17)] HTTP request: /
-4:38:36 PM [vike][request(17)] HTTP response / 200
+6:11:02 PM [vike][request(1)] HTTP request: /products
+6:11:03 PM [vike][request(1)] HTTP response /products 200
+6:11:07 PM [vike][request(2)] HTTP request: /products
+6:11:07 PM [vike][request(2)] HTTP response /products 200
+6:11:51 PM [vike][request(3)] HTTP request: /products
+6:11:51 PM [vike][request(3)] HTTP response /products 200
+6:11:51 PM [vike][request(4)] HTTP request: /products?category=Electronics
+6:11:51 PM [vike][request(4)] HTTP response /products?category=Electronics 200
+6:11:56 PM [vike][request(5)] HTTP request: /products
+6:11:56 PM [vike][request(5)] HTTP response /products 200
+6:11:56 PM [vike][request(6)] HTTP request: /products?category=Electronics
+6:11:56 PM [vike][request(6)] HTTP response /products?category=Electronics 200

@@ -36,6 +36,7 @@ import {
   deleteProduct, 
   getProduct, 
   getProductStats,
+  getCategories,
   updateProductImage,
   validateProduct,
   validateProductUpdate,
@@ -113,6 +114,7 @@ async function startServer() {
   app.get('/api/products', authenticateToken, getProducts)
   app.post('/api/products', authenticateToken, upload.single('image'), validateProduct, createProduct)
   app.get('/api/products/stats', authenticateToken, getProductStats)
+  app.get('/api/products/categories', authenticateToken, getCategories)
   app.get('/api/products/:id', authenticateToken, getProduct)
   app.put('/api/products/:id', authenticateToken, upload.single('image'), validateProductUpdate, updateProduct)
   app.delete('/api/products/:id', authenticateToken, deleteProduct)
