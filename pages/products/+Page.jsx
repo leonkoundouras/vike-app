@@ -765,8 +765,7 @@ export default function ProductsPage() {
                         onMouseLeave={(e) => e.target.style.backgroundColor = '#28a745'}
                         onClick={(e) => {
                           e.stopPropagation()
-                          alert('Edit functionality coming soon! For now, you can view product details.')
-                          window.location.href = `/products/${product.id}`
+                          window.location.href = `/products/${product.id}/edit`
                         }}
                       >
                         ✏️ Edit

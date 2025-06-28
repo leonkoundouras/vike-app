@@ -19,3 +19,22 @@ Server running at http://localhost:12001
 7:53:10 PM [vite] hmr update /pages/products/+Page.jsx
 7:53:25 PM [vite] hmr update /pages/products/+Page.jsx
 7:53:34 PM [vite] hmr update /pages/products/+Page.jsx
+7:53:46 PM [vike][request(5)] HTTP request: /
+7:53:46 PM [vike][request(5)] HTTP response / 200
+7:56:09 PM [vike][request(6)] HTTP request: /products
+7:56:09 PM [vike][request(6)] HTTP response /products 200
+7:56:23 PM [vike][request(7)] HTTP request: /products/mock-12
+7:56:23 PM [vike][request(7)] HTTP response /products/mock-12 200
+7:56:36 PM [vike][request(8)] HTTP request: /products/mock-12
+7:56:36 PM [vike][request(8)] HTTP response /products/mock-12 200
+7:56:43 PM [vike][request(9)] HTTP request: /
+7:56:43 PM [vike][request(9)] HTTP response / 200
+7:56:57 PM [vike][request(10)] HTTP request: /products/mock-12
+7:56:57 PM [vike][request(10)] HTTP response /products/mock-12 200
+7:57:21 PM [vike][request(11)] HTTP request: /products/mock-12
+7:57:21 PM [vike][request(11)] HTTP response /products/mock-12 200
+7:57:45 PM [vike][request(12)] HTTP request: /products/mock-12
+7:57:45 PM [vike][request(12)] HTTP response /products/mock-12 200
+8:00:01 PM [vike][config] created /pages/products/@id/edit/+Page.jsx
+8:00:05 PM [vike][config] created /pages/products/@id/edit/+route.js
+8:00:49 PM [vite] hmr update /pages/products/+Page.jsx

@@ -35,5 +35,18 @@ If you're still seeing "Welcome, Test User 2!" but getting "User not found" erro
 - **Categories**: Audio, Electronics, Furniture, Home & Garden, Kitchen, Outdoor, Photography, Smart Home, Wearables
 - **User IDs**: Products now initialized for actual user IDs instead of hardcoded 'demo-user-id'
 
+## Latest Update: Added View/Edit Buttons ✅
+
+**Product Cards Now Include:**
+- 👁️ **View Button**: Navigate to product detail page
+- ✏️ **Edit Button**: Shows "coming soon" message (edit functionality to be implemented)
+- **Hover Effects**: Buttons change color on hover
+- **Proper Styling**: Clean, professional button layout
+
 ## Next Steps
 The application should now work correctly for all users. The enhanced token validation will automatically handle invalid tokens in the future.
+
+**Remaining Tasks:**
+- Implement product edit/create pages
+- Add product deletion functionality
+- Add product image upload capability
