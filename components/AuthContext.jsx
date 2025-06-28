@@ -134,8 +134,15 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  const getAuthHeaders = () => {
-    return token ? { Authorization: `Bearer ${token}` } : {}
+  const getAuthHeaders = (skipContentType = false) => {
+    const headers = token ? { Authorization: `Bearer ${token}` } : {}
+    
+    // Don't add Content-Type for FormData (browser will set it with boundary)
+    if (!skipContentType) {
+      headers['Content-Type'] = 'application/json'
+    }
+    
+    return headers
   }
 
   // Handle API errors and auto-logout on invalid token
