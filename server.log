@@ -2,42 +2,48 @@
 > vike-ssr-app@1.0.0 dev
 > node server.js
 
-3:01:43 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
+4:11:42 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
 Server running at http://localhost:12001
-3:01:52 PM [vike][request(1)] HTTP request: /products/mock-1
-3:01:52 PM [vike][request(1)] Following error was thrown by the onRenderHtml() hook defined at vike-react/__internal/integration/onRenderHtml
-ReferenceError: window is not defined
-    at ProductDetailPage (/workspace/vike-app/pages/products/@id/+Page.jsx:231:40)
-    at renderWithHooks (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5662:16)
-    at renderIndeterminateComponent (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5736:15)
-    at renderElement (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5961:7)
-    at renderNodeDestructiveImpl (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6119:11)
-    at renderNodeDestructive (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6091:14)
-    at renderNode (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6274:12)
-    at renderHostElement (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5646:3)
-    at renderElement (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5967:5)
-    at renderNodeDestructiveImpl (/workspace/vike-app/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6119:11)
-┌─────────────────────────────────────────────────────────────────────┐
-│ To fix this error, see https://vike.dev/hints#window-is-not-defined │
-└─────────────────────────────────────────────────────────────────────┘
-3:01:52 PM [vike][request(1)][Warning] No error page found, we recommend defining one https://vike.dev/error-page
-3:01:52 PM [vike][request(1)] HTTP response /products/mock-1 500
-3:02:28 PM [vite] page reload pages/products/@id/+Page.jsx
-3:03:09 PM [vike][config] created /pages/products/@id/+Page.jsx.simple
-3:03:16 PM [vike][config] created /pages/products/@id/+Page.jsx.complex
-3:03:16 PM [vite] page reload pages/products/@id/+Page.jsx
-3:03:16 PM [vike][config] removed /pages/products/@id/+Page.jsx.simple
-3:05:13 PM [vike][request(2)] HTTP request: /products
-3:05:13 PM [vike][request(2)] HTTP response /products 200
+4:12:05 PM [vike][request(1)] HTTP request: /
+4:12:05 PM [vike][request(1)] HTTP response / 200
+4:12:05 PM [vike][request(2)] HTTP request: /
+4:12:05 PM [vike][request(2)] HTTP response / 200
+4:12:08 PM [vike][request(3)] HTTP request: /
+4:12:08 PM [vike][request(3)] HTTP response / 200
 ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
     at Object.xForwardedForHeader (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:157:13)
     at Object.wrappedValidations.<computed> [as xForwardedForHeader] (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:369:22)
     at Object.keyGenerator (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:630:20)
     at file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:682:32
-    at processTicksAndRejections (node:internal/process/task_queues:105:5)
     at file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:663:5 {
   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
 }
-3:05:31 PM [vike][request(3)] HTTP request: /products
-3:05:31 PM [vike][request(3)] HTTP response /products 200
+4:13:01 PM [vike][request(4)] HTTP request: /products
+4:13:01 PM [vike][request(4)] HTTP response /products 200
+4:13:17 PM [vike][request(5)] HTTP request: /products/mock-12/index.pageContext.json
+4:13:17 PM [vike][request(5)] HTTP response /products/mock-12/index.pageContext.json 200
+4:14:39 PM [vike][request(6)] HTTP request: /products/mock-12/index.pageContext.json
+4:14:39 PM [vike][request(6)] HTTP response /products/mock-12/index.pageContext.json 200
+4:14:56 PM [vike][request(7)] HTTP request: /
+4:14:56 PM [vike][request(7)] HTTP response / 200
+4:15:50 PM [vike][request(8)] HTTP request: /products/mock-12/index.pageContext.json
+4:15:50 PM [vike][request(8)] HTTP response /products/mock-12/index.pageContext.json 200
+4:16:56 PM [vike][request(9)] HTTP request: /
+4:16:56 PM [vike][request(9)] HTTP response / 200
+4:16:58 PM [vike][request(10)] HTTP request: /products/mock-12/index.pageContext.json
+4:16:58 PM [vike][request(10)] HTTP response /products/mock-12/index.pageContext.json 200
+4:18:05 PM [vike][request(11)] HTTP request: /products/mock-12/index.pageContext.json
+4:18:05 PM [vike][request(11)] HTTP response /products/mock-12/index.pageContext.json 200
+4:18:27 PM [vike][request(12)] HTTP request: /
+4:18:27 PM [vike][request(12)] HTTP response / 200
+4:21:30 PM [vike][request(13)] HTTP request: /
+4:21:30 PM [vike][request(13)] HTTP response / 200
+4:22:34 PM [vike][request(14)] HTTP request: /
+4:22:34 PM [vike][request(14)] HTTP response / 200
+4:22:35 PM [vike][request(15)] HTTP request: /
+4:22:35 PM [vike][request(15)] HTTP response / 200
+4:38:36 PM [vike][request(16)] HTTP request: /
+4:38:36 PM [vike][request(16)] HTTP response / 200
+4:38:36 PM [vike][request(17)] HTTP request: /
+4:38:36 PM [vike][request(17)] HTTP response / 200

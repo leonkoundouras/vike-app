@@ -122,17 +122,34 @@ const styles = {
     boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
     border: '1px solid #e1e8ed',
     transition: 'transform 0.3s, box-shadow 0.3s',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    position: 'relative'
   },
   productCardHover: {
     transform: 'translateY(-5px)',
     boxShadow: '0 15px 40px rgba(0,0,0,0.15)'
+  },
+  featuredBadge: {
+    position: 'absolute',
+    top: '1rem',
+    left: '1rem',
+    backgroundColor: 'rgba(52, 152, 219, 0.9)',
+    color: 'white',
+    padding: '0.5rem 1rem',
+    borderRadius: '20px',
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+    zIndex: 10
   },
   productImage: {
     width: '100%',
     height: '250px',
     objectFit: 'cover',
     transition: 'transform 0.3s'
+  },
+  productImageHover: {
+    transform: 'scale(1.05)'
   },
   productImagePlaceholder: {
     width: '100%',
@@ -232,15 +249,33 @@ const styles = {
   },
   viewButton: {
     backgroundColor: '#3498db',
-    color: 'white'
+    color: 'white',
+    boxShadow: '0 4px 15px rgba(52, 152, 219, 0.3)'
+  },
+  viewButtonHover: {
+    backgroundColor: '#2980b9',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 6px 20px rgba(52, 152, 219, 0.4)'
   },
   editButton: {
     backgroundColor: '#f39c12',
-    color: 'white'
+    color: 'white',
+    boxShadow: '0 4px 15px rgba(243, 156, 18, 0.3)'
+  },
+  editButtonHover: {
+    backgroundColor: '#e67e22',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 6px 20px rgba(243, 156, 18, 0.4)'
   },
   deleteButton: {
     backgroundColor: '#e74c3c',
-    color: 'white'
+    color: 'white',
+    boxShadow: '0 4px 15px rgba(231, 76, 60, 0.3)'
+  },
+  deleteButtonHover: {
+    backgroundColor: '#c0392b',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 6px 20px rgba(231, 76, 60, 0.4)'
   },
   modal: {
     position: 'fixed',
@@ -386,6 +421,7 @@ export default function ProductsPage() {
   const [editingProduct, setEditingProduct] = useState(null)
   const [stats, setStats] = useState({ total: 0, totalValue: 0 })
   const [searchTerm, setSearchTerm] = useState('')
+  const [hoveredElements, setHoveredElements] = useState({})
 
   const { isAuthenticated, loading: authLoading } = useAuth()
 
@@ -398,6 +434,17 @@ export default function ProductsPage() {
     stock: '',
     image: null
   })
+  
+  // Function to handle hover states
+  const handleHover = (productId, element, isHovered) => {
+    setHoveredElements(prev => ({
+      ...prev,
+      [productId]: {
+        ...(prev[productId] || {}),
+        [element]: isHovered
+      }
+    }))
+  }
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -673,6 +720,8 @@ export default function ProductsPage() {
           <div style={styles.productsGrid}>
             {filteredProducts.map((product) => {
               const stockStatus = getStockStatus(product.stock)
+              const productHoverState = hoveredElements[product.id] || {}
+              
               return (
                 <div
                   key={product.id}
@@ -683,14 +732,29 @@ export default function ProductsPage() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)'
                     e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)'
+                    // Clear all hover states for this product
+                    handleHover(product.id, 'image', false)
+                    handleHover(product.id, 'viewButton', false)
+                    handleHover(product.id, 'editButton', false)
+                    handleHover(product.id, 'deleteButton', false)
                   }}
                 >
+                  {/* Featured Badge */}
+                  {product.featured && (
+                    <div style={styles.featuredBadge}>✨ Featured</div>
+                  )}
+                  
                   {/* Product Image */}
                   {product.image ? (
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      style={styles.productImage}
+                      style={{
+                        ...styles.productImage,
+                        ...(productHoverState.image ? styles.productImageHover : {})
+                      }}
+                      onMouseEnter={() => handleHover(product.id, 'image', true)}
+                      onMouseLeave={() => handleHover(product.id, 'image', false)}
                       onError={(e) => {
                         e.target.style.display = 'none'
                         e.target.nextSibling.style.display = 'flex'
@@ -724,19 +788,38 @@ export default function ProductsPage() {
                     <div style={styles.productActions}>
                       <a
                         href={`/products/${product.id}`}
-                        style={{...styles.actionButton, ...styles.viewButton, textDecoration: 'none'}}
+                        style={{
+                          ...styles.actionButton, 
+                          ...styles.viewButton, 
+                          ...(productHoverState.viewButton ? styles.viewButtonHover : {}),
+                          textDecoration: 'none'
+                        }}
+                        onMouseEnter={() => handleHover(product.id, 'viewButton', true)}
+                        onMouseLeave={() => handleHover(product.id, 'viewButton', false)}
                       >
                         👁️ View
                       </a>
                       <button
                         onClick={() => handleEdit(product)}
-                        style={{...styles.actionButton, ...styles.editButton}}
+                        style={{
+                          ...styles.actionButton, 
+                          ...styles.editButton,
+                          ...(productHoverState.editButton ? styles.editButtonHover : {})
+                        }}
+                        onMouseEnter={() => handleHover(product.id, 'editButton', true)}
+                        onMouseLeave={() => handleHover(product.id, 'editButton', false)}
                       >
                         ✏️ Edit
                       </button>
                       <button
                         onClick={() => handleDelete(product.id)}
-                        style={{...styles.actionButton, ...styles.deleteButton}}
+                        style={{
+                          ...styles.actionButton, 
+                          ...styles.deleteButton,
+                          ...(productHoverState.deleteButton ? styles.deleteButtonHover : {})
+                        }}
+                        onMouseEnter={() => handleHover(product.id, 'deleteButton', true)}
+                        onMouseLeave={() => handleHover(product.id, 'deleteButton', false)}
                       >
                         🗑️ Delete
                       </button>

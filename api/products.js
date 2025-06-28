@@ -11,80 +11,254 @@ const mockProducts = [
   {
     id: 'mock-1',
     name: 'Wireless Bluetooth Headphones',
-    description: 'Premium noise-cancelling wireless headphones with 30-hour battery life. Perfect for music lovers and professionals.',
+    description: 'Premium noise-cancelling wireless headphones with 30-hour battery life. Perfect for music lovers and professionals. Features include touch controls, voice assistant support, and a comfortable over-ear design for extended listening sessions.',
     price: 199.99,
     category: 'Electronics',
     stock: 25,
     sku: 'WBH-001',
     status: 'active',
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop',
     createdAt: new Date('2024-01-15'),
-    updatedAt: new Date('2024-01-15')
+    updatedAt: new Date('2024-01-15'),
+    featured: true,
+    specifications: {
+      'Battery Life': '30 hours',
+      'Connectivity': 'Bluetooth 5.0',
+      'Noise Cancellation': 'Active',
+      'Weight': '250g',
+      'Charging': 'USB-C'
+    }
   },
   {
     id: 'mock-2',
     name: 'Smart Fitness Watch',
-    description: 'Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life. Track your health goals.',
+    description: 'Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life. Track your health goals with precision. Includes sleep tracking, stress monitoring, and customizable workout modes for a complete health overview.',
     price: 299.99,
     category: 'Wearables',
     stock: 15,
     sku: 'SFW-002',
     status: 'active',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop',
     createdAt: new Date('2024-01-20'),
-    updatedAt: new Date('2024-01-20')
+    updatedAt: new Date('2024-01-20'),
+    featured: true,
+    specifications: {
+      'Battery Life': '7 days',
+      'Water Resistance': '5 ATM',
+      'Display': 'AMOLED Touchscreen',
+      'Sensors': 'Heart Rate, GPS, Accelerometer',
+      'Compatibility': 'iOS, Android'
+    }
   },
   {
     id: 'mock-3',
     name: 'Ergonomic Office Chair',
-    description: 'Professional ergonomic office chair with lumbar support and adjustable height. Comfortable for long work sessions.',
+    description: 'Professional ergonomic office chair with lumbar support and adjustable height. Comfortable for long work sessions. The breathable mesh back provides excellent ventilation, while the adjustable armrests and headrest ensure perfect positioning for any body type.',
     price: 449.99,
     category: 'Furniture',
     stock: 8,
     sku: 'EOC-003',
     status: 'active',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=600&fit=crop',
     createdAt: new Date('2024-01-25'),
-    updatedAt: new Date('2024-01-25')
+    updatedAt: new Date('2024-01-25'),
+    featured: false,
+    specifications: {
+      'Material': 'Mesh and Premium Fabric',
+      'Weight Capacity': '300 lbs',
+      'Adjustable Height': 'Yes',
+      'Armrests': 'Adjustable 3D',
+      'Recline': '135 degrees'
+    }
   },
   {
     id: 'mock-4',
     name: 'Portable Coffee Maker',
-    description: 'Compact espresso machine perfect for travel and small spaces. Brew barista-quality coffee anywhere.',
+    description: 'Compact espresso machine perfect for travel and small spaces. Brew barista-quality coffee anywhere. This manual espresso maker requires no electricity, making it ideal for camping, road trips, or office use. The stainless steel construction ensures durability and easy cleaning.',
     price: 89.99,
     category: 'Kitchen',
     stock: 30,
     sku: 'PCM-004',
     status: 'active',
-    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop',
     createdAt: new Date('2024-02-01'),
-    updatedAt: new Date('2024-02-01')
+    updatedAt: new Date('2024-02-01'),
+    featured: true,
+    specifications: {
+      'Material': 'Stainless Steel',
+      'Capacity': '80ml',
+      'Weight': '340g',
+      'Dimensions': '17 x 7 x 7 cm',
+      'Pressure': '8 Bar'
+    }
   },
   {
     id: 'mock-5',
     name: 'Wireless Charging Pad',
-    description: 'Fast wireless charging pad compatible with all Qi-enabled devices. Sleek design with LED indicator.',
+    description: 'Fast wireless charging pad compatible with all Qi-enabled devices. Sleek design with LED indicator. The non-slip surface keeps your device secure while charging, and the intelligent temperature control prevents overheating for safe, efficient charging.',
     price: 39.99,
     category: 'Electronics',
     stock: 50,
     sku: 'WCP-005',
     status: 'active',
-    image: 'https://images.unsplash.com/photo-1609592806596-4d8b5b1d7e7e?w=400&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1609592806596-4d8b5b1d7e7e?w=600&h=600&fit=crop',
     createdAt: new Date('2024-02-05'),
-    updatedAt: new Date('2024-02-05')
+    updatedAt: new Date('2024-02-05'),
+    featured: false,
+    specifications: {
+      'Input': '5V/2A, 9V/1.67A',
+      'Output': '10W Max',
+      'Compatibility': 'All Qi-enabled devices',
+      'Dimensions': '10 x 10 x 1.2 cm',
+      'Cable Length': '1.5m'
+    }
   },
   {
     id: 'mock-6',
     name: 'Gaming Mechanical Keyboard',
-    description: 'RGB backlit mechanical keyboard with tactile switches. Perfect for gaming and professional typing.',
+    description: 'RGB backlit mechanical keyboard with tactile switches. Perfect for gaming and professional typing. The customizable RGB lighting offers 16.8 million colors and multiple lighting effects. The durable mechanical switches are rated for 50 million keystrokes.',
     price: 129.99,
     category: 'Electronics',
     stock: 20,
     sku: 'GMK-006',
     status: 'active',
-    image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=600&h=600&fit=crop',
     createdAt: new Date('2024-02-10'),
-    updatedAt: new Date('2024-02-10')
+    updatedAt: new Date('2024-02-10'),
+    featured: true,
+    specifications: {
+      'Switch Type': 'Mechanical (Blue)',
+      'Layout': 'Full-size (104 keys)',
+      'Backlight': 'RGB (16.8M colors)',
+      'Connection': 'USB-C (Detachable)',
+      'Anti-ghosting': 'N-key rollover'
+    }
+  },
+  {
+    id: 'mock-7',
+    name: 'Professional DSLR Camera',
+    description: 'High-performance DSLR camera with 24.2MP sensor and 4K video recording capabilities. Perfect for professional photographers and videographers. Features include a vari-angle touchscreen, built-in Wi-Fi and Bluetooth, and an extensive range of compatible lenses.',
+    price: 1299.99,
+    category: 'Photography',
+    stock: 5,
+    sku: 'DSLR-007',
+    status: 'active',
+    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop',
+    createdAt: new Date('2024-02-15'),
+    updatedAt: new Date('2024-02-15'),
+    featured: true,
+    specifications: {
+      'Sensor': '24.2MP APS-C CMOS',
+      'Video': '4K UHD at 30fps',
+      'ISO Range': '100-25600 (expandable)',
+      'Autofocus': '45-point all cross-type',
+      'Storage': 'Dual SD card slots'
+    }
+  },
+  {
+    id: 'mock-8',
+    name: 'Smart Home Security System',
+    description: 'Comprehensive home security system with HD cameras, motion sensors, and smartphone integration. Monitor your home from anywhere with real-time alerts and video streaming. The system is easy to install with no professional help required.',
+    price: 349.99,
+    category: 'Smart Home',
+    stock: 12,
+    sku: 'SHSS-008',
+    status: 'active',
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=600&h=600&fit=crop',
+    createdAt: new Date('2024-02-20'),
+    updatedAt: new Date('2024-02-20'),
+    featured: false,
+    specifications: {
+      'Camera Resolution': '1080p HD',
+      'Night Vision': 'Infrared (30ft range)',
+      'Storage': 'Cloud + Local',
+      'Power': 'Wired with battery backup',
+      'Connectivity': 'Wi-Fi, Ethernet'
+    }
+  },
+  {
+    id: 'mock-9',
+    name: 'Ultralight Hiking Backpack',
+    description: 'Durable, waterproof hiking backpack with 45L capacity and ergonomic design. Perfect for multi-day treks and adventures. Features multiple compartments, hydration system compatibility, and adjustable straps for optimal comfort during long hikes.',
+    price: 129.99,
+    category: 'Outdoor',
+    stock: 18,
+    sku: 'UHB-009',
+    status: 'active',
+    image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=600&h=600&fit=crop',
+    createdAt: new Date('2024-02-25'),
+    updatedAt: new Date('2024-02-25'),
+    featured: false,
+    specifications: {
+      'Capacity': '45L',
+      'Weight': '1.2kg',
+      'Material': 'Ripstop Nylon',
+      'Waterproof': 'Yes',
+      'Frame': 'Internal Aluminum'
+    }
+  },
+  {
+    id: 'mock-10',
+    name: 'Premium Noise-Cancelling Earbuds',
+    description: 'True wireless earbuds with active noise cancellation and premium sound quality. The perfect companion for commuting, travel, and workouts. Features include touch controls, voice assistant support, and a compact charging case that provides up to 24 hours of total battery life.',
+    price: 179.99,
+    category: 'Audio',
+    stock: 22,
+    sku: 'NCE-010',
+    status: 'active',
+    image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=600&fit=crop',
+    createdAt: new Date('2024-03-01'),
+    updatedAt: new Date('2024-03-01'),
+    featured: true,
+    specifications: {
+      'Battery Life': '8 hours (ANC on)',
+      'Charging Case': '24 hours total',
+      'Water Resistance': 'IPX4',
+      'Connectivity': 'Bluetooth 5.2',
+      'Noise Cancellation': 'Hybrid ANC'
+    }
+  },
+  {
+    id: 'mock-11',
+    name: 'Adjustable Standing Desk',
+    description: 'Electric height-adjustable standing desk with memory settings and spacious work surface. Transition seamlessly between sitting and standing positions for improved productivity and health. The sturdy construction supports up to 100kg of equipment.',
+    price: 499.99,
+    category: 'Furniture',
+    stock: 7,
+    sku: 'ASD-011',
+    status: 'active',
+    image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=600&fit=crop',
+    createdAt: new Date('2024-03-05'),
+    updatedAt: new Date('2024-03-05'),
+    featured: false,
+    specifications: {
+      'Height Range': '72-120cm',
+      'Desktop Size': '140 x 70cm',
+      'Weight Capacity': '100kg',
+      'Memory Settings': '4 positions',
+      'Material': 'Bamboo + Steel'
+    }
+  },
+  {
+    id: 'mock-12',
+    name: 'Smart Indoor Garden',
+    description: 'Automated indoor garden system for growing herbs, vegetables, and flowers year-round. The built-in LED grow lights and self-watering system ensure optimal growing conditions with minimal maintenance. Perfect for urban apartments and spaces with limited natural light.',
+    price: 199.99,
+    category: 'Home & Garden',
+    stock: 14,
+    sku: 'SIG-012',
+    status: 'active',
+    image: 'https://images.unsplash.com/photo-1585400473049-716c3dc4d7d3?w=600&h=600&fit=crop',
+    createdAt: new Date('2024-03-10'),
+    updatedAt: new Date('2024-03-10'),
+    featured: true,
+    specifications: {
+      'Capacity': '9 plant pods',
+      'Lighting': 'Full spectrum LED',
+      'Water Tank': '3L capacity',
+      'Power': '24W',
+      'Dimensions': '40 x 30 x 40cm'
+    }
   }
 ]
 
