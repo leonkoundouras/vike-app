@@ -1,6 +1,5 @@
 import express from 'express'
 import { renderPage } from 'vike/server'
-import { createServer } from 'vite'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import path from 'path'
@@ -132,6 +131,7 @@ async function startServer() {
     app.use(express.static('dist/client'))
   } else {
     // In development, use Vite's dev server
+    const { createServer } = await import('vite')
     const viteDevServer = await createServer({
       server: { middlewareMode: true },
       appType: 'custom'
