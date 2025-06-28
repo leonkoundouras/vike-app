@@ -1,6 +1,5 @@
 import express from 'express'
 import { renderPage } from 'vike/server'
-import { createServer } from 'vite'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import path from 'path'
@@ -37,6 +36,7 @@ import {
   deleteProduct, 
   getProduct, 
   getProductStats,
+  getCategories,
   updateProductImage,
   validateProduct,
   validateProductUpdate,
@@ -114,6 +114,7 @@ async function startServer() {
   app.get('/api/products', authenticateToken, getProducts)
   app.post('/api/products', authenticateToken, upload.single('image'), validateProduct, createProduct)
   app.get('/api/products/stats', authenticateToken, getProductStats)
+  app.get('/api/products/categories', authenticateToken, getCategories)
   app.get('/api/products/:id', authenticateToken, getProduct)
   app.put('/api/products/:id', authenticateToken, upload.single('image'), validateProductUpdate, updateProduct)
   app.delete('/api/products/:id', authenticateToken, deleteProduct)
@@ -132,6 +133,7 @@ async function startServer() {
     app.use(express.static('dist/client'))
   } else {
     // In development, use Vite's dev server
+    const { createServer } = await import('vite')
     const viteDevServer = await createServer({
       server: { middlewareMode: true },
       appType: 'custom'

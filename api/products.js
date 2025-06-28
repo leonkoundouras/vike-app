@@ -270,6 +270,18 @@ function initializeMockProducts() {
   }
 }
 
+// Initialize mock products for all existing users (for demo purposes)
+function initializeMockProductsForAllUsers() {
+  // Fallback: initialize for common demo user IDs
+  const commonUserIds = ['1751134209911', '1751134311621', 'demo-user-id']
+  commonUserIds.forEach(userId => {
+    if (!products.has(userId)) {
+      products.set(userId, [...mockProducts])
+      console.log(`Initialized mock products for user ID: ${userId}`)
+    }
+  })
+}
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -371,7 +383,7 @@ export const validateProductUpdate = [
     .withMessage('Status must be active, inactive, or draft')
 ]
 
-// Get all products for user
+// Get all products for user with filtering and sorting
 export const getProducts = (req, res) => {
   try {
     const userId = req.user.id
@@ -381,20 +393,126 @@ export const getProducts = (req, res) => {
       products.set(userId, [...mockProducts])
     }
     
-    const userProducts = products.get(userId) || []
+    let userProducts = products.get(userId) || []
 
-    // Sort by creation date (newest first)
-    const sortedProducts = userProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    // Apply filters
+    const { category, minPrice, maxPrice, sortBy, sortOrder, search } = req.query
+
+    // Filter by category
+    if (category && category !== 'all') {
+      userProducts = userProducts.filter(product => 
+        product.category.toLowerCase() === category.toLowerCase()
+      )
+    }
+
+    // Filter by price range
+    if (minPrice) {
+      userProducts = userProducts.filter(product => product.price >= parseFloat(minPrice))
+    }
+    if (maxPrice) {
+      userProducts = userProducts.filter(product => product.price <= parseFloat(maxPrice))
+    }
+
+    // Filter by search term
+    if (search) {
+      const searchTerm = search.toLowerCase()
+      userProducts = userProducts.filter(product =>
+        product.name.toLowerCase().includes(searchTerm) ||
+        product.description.toLowerCase().includes(searchTerm) ||
+        product.category.toLowerCase().includes(searchTerm) ||
+        product.sku.toLowerCase().includes(searchTerm)
+      )
+    }
+
+    // Apply sorting
+    if (sortBy) {
+      userProducts.sort((a, b) => {
+        let aValue, bValue
+        
+        switch (sortBy) {
+          case 'price':
+            aValue = a.price
+            bValue = b.price
+            break
+          case 'name':
+            aValue = a.name.toLowerCase()
+            bValue = b.name.toLowerCase()
+            break
+          case 'category':
+            aValue = a.category.toLowerCase()
+            bValue = b.category.toLowerCase()
+            break
+          case 'stock':
+            aValue = a.stock
+            bValue = b.stock
+            break
+          case 'createdAt':
+          default:
+            aValue = new Date(a.createdAt)
+            bValue = new Date(b.createdAt)
+            break
+        }
+
+        if (sortOrder === 'desc') {
+          return aValue > bValue ? -1 : aValue < bValue ? 1 : 0
+        } else {
+          return aValue < bValue ? -1 : aValue > bValue ? 1 : 0
+        }
+      })
+    } else {
+      // Default sort by creation date (newest first)
+      userProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    }
 
     res.json({
       success: true,
       data: { 
-        products: sortedProducts,
-        total: sortedProducts.length
+        products: userProducts,
+        total: userProducts.length
       }
     })
   } catch (error) {
     console.error('Get products error:', error)
+    res.status(500).json({
+      success: false,
+      message: 'Internal server error'
+    })
+  }
+}
+
+// Get all available categories
+export const getCategories = (req, res) => {
+  try {
+    const userId = req.user.id
+    
+    // Initialize mock products for new users
+    if (!products.has(userId)) {
+      products.set(userId, [...mockProducts])
+    }
+    
+    const userProducts = products.get(userId) || []
+    
+    // Extract unique categories
+    const categories = [...new Set(userProducts
+      .map(product => product.category)
+      .filter(category => category && category.trim() !== '')
+    )].sort()
+
+    // Calculate product count per category
+    const categoriesWithCount = categories.map(category => ({
+      name: category,
+      count: userProducts.filter(product => product.category === category).length
+    }))
+
+    res.json({
+      success: true,
+      data: { 
+        categories: categoriesWithCount,
+        total: categories.length
+      }
+    })
+  } catch (error) {
+    console.error('Get categories error:', error)
     res.status(500).json({
       success: false,
       message: 'Internal server error'
@@ -739,3 +857,6 @@ export const updateProductImage = (req, res) => {
     })
   }
 }
+
+// Initialize mock products for all users on module load
+initializeMockProductsForAllUsers()

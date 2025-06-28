@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../components/AuthContext'
+import '../../styles/responsive.css'
 
 const styles = {
   container: {
@@ -175,11 +176,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Login</h1>
+    <div style={styles.container} className="auth-container">
+      <h1 style={styles.title} className="auth-title">Login</h1>
       
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.formGroup}>
+      <form onSubmit={handleSubmit} style={styles.form} className="auth-form">
+        <div style={styles.formGroup} className="auth-form-group">
           <label htmlFor="email" style={styles.label}>Email</label>
           <input
             type="email"
@@ -188,13 +189,14 @@ export default function LoginPage() {
             value={formData.email}
             onChange={handleChange}
             style={styles.input}
+            className="auth-input"
             placeholder="Enter your email"
             disabled={loading}
           />
           {errors.email && <div style={styles.error}>{errors.email}</div>}
         </div>
 
-        <div style={styles.formGroup}>
+        <div style={styles.formGroup} className="auth-form-group">
           <label htmlFor="password" style={styles.label}>Password</label>
           <input
             type="password"
@@ -203,6 +205,7 @@ export default function LoginPage() {
             value={formData.password}
             onChange={handleChange}
             style={styles.input}
+            className="auth-input"
             placeholder="Enter your password"
             disabled={loading}
           />
