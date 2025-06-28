@@ -1,6 +1,6 @@
-# Vike Product Management App
+# VikePress
 
-A modern, secure product management application built with Vike SSR, React, and Express.js featuring JWT authentication, bcrypt password hashing, and comprehensive product management with image uploads.
+A modern, WordPress-like product management application built with Vike SSR, React, and Express.js featuring JWT authentication, bcrypt password hashing, and comprehensive product management with image uploads.
 
 ## 🚀 Features
 
@@ -23,11 +23,14 @@ A modern, secure product management application built with Vike SSR, React, and 
 
 ### Frontend Features
 - **Server-Side Rendering**: Fast initial page loads with Vike SSR
-- **Responsive Design**: Mobile-friendly interface
+- **WordPress-like UI**: Familiar interface with sidebar, header, and content areas
+- **Responsive Design**: Mobile-friendly interface with collapsible sidebar
 - **Real-time Updates**: Immediate UI feedback
 - **Form Validation**: Client-side and server-side validation
 - **Error Handling**: Comprehensive error messages
 - **Loading States**: User feedback during operations
+- **User Avatar**: Display user initials in the header
+- **Category Management**: Dedicated page for managing product categories
 
 ## 📁 Project Structure
 
@@ -38,7 +41,7 @@ vike-app/
 │   └── todos.js         # Todo CRUD operations and validation
 ├── components/
 │   ├── AuthContext.jsx  # Authentication context provider
-│   └── Layout.jsx       # Main layout component with navigation
+│   └── Layout.jsx       # Main layout component with WordPress-like structure
 ├── pages/
 │   ├── index/
 │   │   └── +Page.jsx    # Home page
@@ -50,11 +53,25 @@ vike-app/
 │   │   └── +Page.jsx    # Todo management page
 │   ├── about/
 │   │   └── +Page.jsx    # About page
+│   ├── products/
+│   │   ├── +Page.jsx    # Products listing page
+│   │   ├── create/
+│   │   │   └── +Page.jsx # Product creation page
+│   │   ├── categories/
+│   │   │   └── +Page.jsx # Category management page
+│   │   └── [id]/
+│   │       ├── +Page.jsx # Product detail page
+│   │       └── edit/
+│   │           └── +Page.jsx # Product edit page
 │   ├── +config.js       # Vike configuration
 │   └── +Layout.jsx      # Root layout wrapper
+├── styles/
+│   ├── wordpress.css    # WordPress-like styling
+│   └── responsive-wp.css # Responsive design styles
 ├── server.js            # Express server with API routes
+├── server-production.js # Production server configuration
 ├── package.json         # Dependencies and scripts
-└── README.md           # This file
+└── README.md            # This file
 ```
 
 ## Getting Started
@@ -70,6 +87,12 @@ vike-app/
 ```bash
 npm install
 ```
+
+### Demo Credentials
+
+- Email: demo@vikepress.com
+- Password: Demo123456
+- Name: Demo User
 
 ### Development
 
@@ -280,7 +303,7 @@ npm run dev:prod
 - **React**: UI library
 - **Vike**: SSR framework
 - **Vite**: Build tool and dev server
-- **CSS-in-JS**: Inline styles for component styling
+- **CSS**: Custom WordPress-like styling with responsive design
 
 ## Configuration
 
