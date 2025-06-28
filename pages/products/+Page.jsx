@@ -349,7 +349,7 @@ export default function ProductsPage() {
     sortOrder: 'desc'
   })
 
-  const { isAuthenticated, loading: authLoading } = useAuth()
+  const { isAuthenticated, loading: authLoading, getAuthHeaders, handleApiError } = useAuth()
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -377,12 +377,15 @@ export default function ProductsPage() {
 
   const fetchCategories = async () => {
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch('/api/products/categories', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: getAuthHeaders()
       })
+      
+      if (!response.ok) {
+        handleApiError(response)
+        return
+      }
+      
       const data = await response.json()
       
       if (data.success) {
@@ -396,7 +399,6 @@ export default function ProductsPage() {
   const fetchProducts = async (currentFilters = filters) => {
     try {
       setLoading(true)
-      const token = localStorage.getItem('token')
       
       // Build query parameters
       const params = new URLSearchParams()
@@ -407,10 +409,15 @@ export default function ProductsPage() {
       })
 
       const response = await fetch(`/api/products?${params.toString()}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: getAuthHeaders()
       })
+      
+      if (!response.ok) {
+        handleApiError(response)
+        setLoading(false)
+        return
+      }
+      
       const data = await response.json()
       
       if (data.success) {

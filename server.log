@@ -2,17 +2,17 @@
 > vike-ssr-app@1.0.0 dev
 > node server.js
 
-6:09:40 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
+Initialized mock products for user ID: 1751134209911
+Initialized mock products for user ID: 1751134311621
+Initialized mock products for user ID: demo-user-id
+6:22:51 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
 Server running at http://localhost:12001
-6:11:02 PM [vike][request(1)] HTTP request: /products
-6:11:03 PM [vike][request(1)] HTTP response /products 200
-6:11:07 PM [vike][request(2)] HTTP request: /products
-6:11:07 PM [vike][request(2)] HTTP response /products 200
-6:11:51 PM [vike][request(3)] HTTP request: /products
-6:11:51 PM [vike][request(3)] HTTP response /products 200
-6:11:51 PM [vike][request(4)] HTTP request: /products?category=Electronics
-6:11:51 PM [vike][request(4)] HTTP response /products?category=Electronics 200
-6:11:56 PM [vike][request(5)] HTTP request: /products
-6:11:56 PM [vike][request(5)] HTTP response /products 200
-6:11:56 PM [vike][request(6)] HTTP request: /products?category=Electronics
-6:11:56 PM [vike][request(6)] HTTP response /products?category=Electronics 200
+6:24:57 PM [vike][request(1)] HTTP request: /
+6:24:57 PM [vike][request(1)] HTTP response / 200
+6:25:02 PM [vike][request(2)] HTTP request: /login
+6:25:02 PM [vike][request(2)] HTTP response /login 200
+6:25:03 PM [vike][request(3)] HTTP request: /login
+6:25:03 PM [vike][request(3)] HTTP response /login 200
+6:26:37 PM [vite] hmr update /components/AuthContext.jsx
+6:26:45 PM [vite] hmr update /components/AuthContext.jsx
+6:27:13 PM [vite] hmr update /components/AuthContext.jsx

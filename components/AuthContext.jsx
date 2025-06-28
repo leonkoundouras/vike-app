@@ -15,6 +15,20 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  // Validate token with server
+  const validateToken = async (token) => {
+    try {
+      const response = await fetch('/api/auth/profile', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      return response.ok
+    } catch (error) {
+      return false
+    }
+  }
+
   // Check for existing token on mount (client-side only)
   useEffect(() => {
     // Only run on client side
@@ -24,8 +38,19 @@ export const AuthProvider = ({ children }) => {
       
       if (savedToken && savedUser) {
         try {
-          setToken(savedToken)
-          setUser(JSON.parse(savedUser))
+          // Validate token with server
+          validateToken(savedToken).then(isValid => {
+            if (isValid) {
+              setToken(savedToken)
+              setUser(JSON.parse(savedUser))
+            } else {
+              console.log('Token is invalid, clearing stored data')
+              localStorage.removeItem('token')
+              localStorage.removeItem('user')
+            }
+            setLoading(false)
+          })
+          return // Don't set loading to false here, wait for validation
         } catch (error) {
           console.error('Error parsing saved user data:', error)
           // Clear invalid data
@@ -113,6 +138,14 @@ export const AuthProvider = ({ children }) => {
     return token ? { Authorization: `Bearer ${token}` } : {}
   }
 
+  // Handle API errors and auto-logout on invalid token
+  const handleApiError = (response) => {
+    if (response.status === 401 || response.status === 403) {
+      console.log('Authentication failed, logging out')
+      logout()
+    }
+  }
+
   const value = {
     user,
     token,
@@ -121,6 +154,7 @@ export const AuthProvider = ({ children }) => {
     register,
     logout,
     getAuthHeaders,
+    handleApiError,
     isAuthenticated: !!user
   }
 

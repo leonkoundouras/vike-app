@@ -270,6 +270,18 @@ function initializeMockProducts() {
   }
 }
 
+// Initialize mock products for all existing users (for demo purposes)
+function initializeMockProductsForAllUsers() {
+  // Fallback: initialize for common demo user IDs
+  const commonUserIds = ['1751134209911', '1751134311621', 'demo-user-id']
+  commonUserIds.forEach(userId => {
+    if (!products.has(userId)) {
+      products.set(userId, [...mockProducts])
+      console.log(`Initialized mock products for user ID: ${userId}`)
+    }
+  })
+}
+
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -845,3 +857,6 @@ export const updateProductImage = (req, res) => {
     })
   }
 }
+
+// Initialize mock products for all users on module load
+initializeMockProductsForAllUsers()

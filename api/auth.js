@@ -236,3 +236,13 @@ export const getAllUsers = (req, res) => {
     data: { users: userList }
   })
 }
+
+// Get all users data (for internal use)
+export const getAllUsersData = () => {
+  return Array.from(users.values()).map(user => ({
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    createdAt: user.createdAt
+  }))
+}
