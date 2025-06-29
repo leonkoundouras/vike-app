@@ -1,24 +1,29 @@
 {
-  "_chunk-!~{004}~.js": {
+  "_chunk-!~{00e}~.js": {
+    "file": "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+    "src": "_chunk-!~{00e}~.js"
+  },
+  "_chunk-!~{00f}~.js": {
     "file": "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
-    "src": "_chunk-!~{004}~.js"
+    "src": "_chunk-!~{00f}~.js"
   },
-  "_chunk-D5dLUlHE.js": {
-    "file": "assets/chunks/chunk-D5dLUlHE.js",
-    "name": "execHook"
-  },
-  "_chunk-DtUMuJzA.js": {
-    "file": "assets/chunks/chunk-DtUMuJzA.js",
+  "_chunk-CLwIoerp.js": {
+    "file": "assets/chunks/chunk-CLwIoerp.js",
     "name": "Loading",
     "imports": [
       "_chunk-D5dLUlHE.js"
     ],
     "css": [
-      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css"
     ]
   },
+  "_chunk-D5dLUlHE.js": {
+    "file": "assets/chunks/chunk-D5dLUlHE.js",
+    "name": "execHook"
+  },
   "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
-    "file": "assets/entries/entry-client-routing.wEBRgnNt.js",
+    "file": "assets/entries/entry-client-routing.DlDVdTWs.js",
     "name": "entries/entry-client-routing",
     "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
     "isEntry": true,
@@ -27,35 +32,197 @@
     ],
     "dynamicImports": [
       "virtual:vike:pageConfigLazy:client:/pages/about",
-      "virtual:vike:pageConfigLazy:client:/pages/index"
+      "virtual:vike:pageConfigLazy:client:/pages/index",
+      "virtual:vike:pageConfigLazy:client:/pages/login",
+      "virtual:vike:pageConfigLazy:client:/pages/products",
+      "virtual:vike:pageConfigLazy:client:/pages/register",
+      "virtual:vike:pageConfigLazy:client:/pages/todos",
+      "virtual:vike:pageConfigLazy:client:/vike-app-deploy/pages/about",
+      "virtual:vike:pageConfigLazy:client:/vike-app-deploy/pages/index",
+      "virtual:vike:pageConfigLazy:client:/pages/products/categories",
+      "virtual:vike:pageConfigLazy:client:/pages/products/create",
+      "virtual:vike:pageConfigLazy:client:/pages/products/@id",
+      "virtual:vike:pageConfigLazy:client:/pages/products/@id/edit"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/pages/about": {
-    "file": "assets/entries/pages_about.CVFQ3uzD.js",
+    "file": "assets/entries/pages_about.uju-iSeS.js",
     "name": "entries/pages/about",
     "src": "virtual:vike:pageConfigLazy:client:/pages/about",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-DtUMuJzA.js",
+      "_chunk-CLwIoerp.js",
       "_chunk-D5dLUlHE.js"
     ],
     "css": [
-      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/pages/index": {
-    "file": "assets/entries/pages_index.0Uk9IFzB.js",
+    "file": "assets/entries/pages_index.D7KeTXSL.js",
     "name": "entries/pages/index",
     "src": "virtual:vike:pageConfigLazy:client:/pages/index",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-DtUMuJzA.js",
+      "_chunk-CLwIoerp.js",
       "_chunk-D5dLUlHE.js"
     ],
     "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/login": {
+    "file": "assets/entries/pages_login.H3vLiyvt.js",
+    "name": "entries/pages/login",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/login",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
       "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/products": {
+    "file": "assets/entries/pages_products.DbR63cqP.js",
+    "name": "entries/pages/products",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/products",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/products/@id": {
+    "file": "assets/entries/pages_products_-id.C6MWFST2.js",
+    "name": "entries/pages/products/@id",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/products/@id",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/products/@id/edit": {
+    "file": "assets/entries/pages_products_-id_edit.BgQCCouu.js",
+    "name": "entries/pages/products/@id/edit",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/products/@id/edit",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/products/categories": {
+    "file": "assets/entries/pages_products_categories.B-xlMzZN.js",
+    "name": "entries/pages/products/categories",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/products/categories",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/products/create": {
+    "file": "assets/entries/pages_products_create.gjKrtqNe.js",
+    "name": "entries/pages/products/create",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/products/create",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/register": {
+    "file": "assets/entries/pages_register.DKcheDL1.js",
+    "name": "entries/pages/register",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/register",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css",
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/todos": {
+    "file": "assets/entries/pages_todos.ye_XiH1u.js",
+    "name": "entries/pages/todos",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/todos",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/vike-app-deploy/pages/about": {
+    "file": "assets/entries/vike-app-deploy_pages_about.d0DWnxfS.js",
+    "name": "entries/vike-app-deploy/pages/about",
+    "src": "virtual:vike:pageConfigLazy:client:/vike-app-deploy/pages/about",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/vike-app-deploy/pages/index": {
+    "file": "assets/entries/vike-app-deploy_pages_index.D5s85jXq.js",
+    "name": "entries/vike-app-deploy/pages/index",
+    "src": "virtual:vike:pageConfigLazy:client:/vike-app-deploy/pages/index",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CLwIoerp.js",
+      "_chunk-D5dLUlHE.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/styles_responsive-00e563e4.Y4tx9H_J.css"
     ]
   }
 }

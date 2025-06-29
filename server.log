@@ -1,91 +1,14 @@
-
-> vike-ssr-app@1.0.0 dev
-> node server.js
-
+Demo user created: demo@vikepress.com
 Initialized mock products for user ID: 1751134209911
 Initialized mock products for user ID: 1751134311621
 Initialized mock products for user ID: demo-user-id
-7:29:20 PM [vike][Warning] vite.createServer() is deprecated https://vike.dev/migration/cli#api
-Server running at http://localhost:12001
-7:29:32 PM [vike][request(1)] HTTP request: /
-7:29:32 PM [vike][request(1)] HTTP response / 200
-7:31:20 PM [vike][request(2)] HTTP request: /
-7:31:20 PM [vike][request(2)] HTTP response / 200
-7:50:36 PM [vike][request(3)] HTTP request: /products
-7:50:36 PM [vike][request(3)] HTTP response /products 200
-7:51:02 PM [vike][request(4)] HTTP request: /products/mock-12
-7:51:02 PM [vike][request(4)] HTTP response /products/mock-12 200
-7:52:38 PM [vite] hmr update /pages/products/+Page.jsx
-7:53:10 PM [vite] hmr update /pages/products/+Page.jsx
-7:53:25 PM [vite] hmr update /pages/products/+Page.jsx
-7:53:34 PM [vite] hmr update /pages/products/+Page.jsx
-7:53:46 PM [vike][request(5)] HTTP request: /
-7:53:46 PM [vike][request(5)] HTTP response / 200
-7:56:09 PM [vike][request(6)] HTTP request: /products
-7:56:09 PM [vike][request(6)] HTTP response /products 200
-7:56:23 PM [vike][request(7)] HTTP request: /products/mock-12
-7:56:23 PM [vike][request(7)] HTTP response /products/mock-12 200
-7:56:36 PM [vike][request(8)] HTTP request: /products/mock-12
-7:56:36 PM [vike][request(8)] HTTP response /products/mock-12 200
-7:56:43 PM [vike][request(9)] HTTP request: /
-7:56:43 PM [vike][request(9)] HTTP response / 200
-7:56:57 PM [vike][request(10)] HTTP request: /products/mock-12
-7:56:57 PM [vike][request(10)] HTTP response /products/mock-12 200
-7:57:21 PM [vike][request(11)] HTTP request: /products/mock-12
-7:57:21 PM [vike][request(11)] HTTP response /products/mock-12 200
-7:57:45 PM [vike][request(12)] HTTP request: /products/mock-12
-7:57:45 PM [vike][request(12)] HTTP response /products/mock-12 200
-8:00:01 PM [vike][config] created /pages/products/@id/edit/+Page.jsx
-8:00:05 PM [vike][config] created /pages/products/@id/edit/+route.js
-8:00:49 PM [vite] hmr update /pages/products/+Page.jsx
-8:01:24 PM [vike][request(13)] HTTP request: /
-8:01:24 PM [vike][request(13)] HTTP response / 200
-8:02:36 PM [vike][request(14)] HTTP request: /products/mock-12
-8:02:36 PM [vike][request(14)] HTTP response /products/mock-12 200
-8:02:46 PM [vike][request(15)] HTTP request: /products/mock-12/edit
-8:02:46 PM [vike][request(15)] HTTP response /products/mock-12/edit 200
-8:02:50 PM [vike][request(16)] HTTP request: /products/mock-12/edit
-8:02:50 PM [vike][request(16)] HTTP response /products/mock-12/edit 200
-8:02:50 PM [vike][request(17)] HTTP request: /products/mock-12/edit
-8:02:50 PM [vike][request(17)] HTTP response /products/mock-12/edit 200
-8:02:50 PM [vike][request(18)] HTTP request: /products/mock-12/edit
-8:02:50 PM [vike][request(18)] HTTP response /products/mock-12/edit 200
-8:02:53 PM [vike][request(19)] HTTP request: /login
-8:02:53 PM [vike][request(19)] HTTP response /login 200
-8:19:35 PM [vike][request(20)] HTTP request: /
-8:19:35 PM [vike][request(20)] HTTP response / 200
-8:19:42 PM [vike][request(21)] HTTP request: /
-8:19:42 PM [vike][request(21)] HTTP response / 200
-8:20:34 PM [vite] hmr update /components/Layout.jsx
-8:20:50 PM [vite] hmr update /components/Layout.jsx
-8:23:04 PM [vite] hmr update /components/Layout.jsx
-8:23:18 PM [vite] hmr update /components/Layout.jsx
-8:23:24 PM [vite] hmr update /components/Layout.jsx
-8:23:46 PM [vite] hmr update /components/Layout.jsx
-8:24:02 PM [vite] hmr update /components/Layout.jsx
-8:24:12 PM [vite] hmr update /pages/products/+Page.jsx
-8:24:22 PM [vite] hmr update /pages/products/+Page.jsx
-8:25:06 PM [vite] hmr update /pages/products/+Page.jsx
-8:25:12 PM [vite] hmr update /pages/products/+Page.jsx
-8:25:17 PM [vite] hmr update /pages/products/+Page.jsx
-8:25:30 PM [vite] hmr update /pages/products/+Page.jsx
-8:25:44 PM [vite] hmr update /pages/products/+Page.jsx
-8:25:52 PM [vite] hmr update /pages/products/+Page.jsx
-8:26:11 PM [vite] hmr update /pages/products/+Page.jsx
-8:26:24 PM [vite] hmr update /pages/products/@id/+Page.jsx
-8:26:31 PM [vite] hmr update /pages/products/@id/edit/+Page.jsx
-8:26:41 PM [vite] hmr update /pages/login/+Page.jsx
-8:27:28 PM [vite] hmr update /pages/login/+Page.jsx
-8:27:33 PM [vite] hmr update /pages/register/+Page.jsx
-8:27:38 PM [vike][request(22)] HTTP request: /
-8:27:38 PM [vike][request(22)] HTTP response / 200
-8:27:56 PM [vike][request(23)] HTTP request: /products
-8:27:56 PM [vike][request(23)] HTTP response /products 200
-8:28:18 PM [vike][request(24)] HTTP request: /products/mock-12
-8:28:19 PM [vike][request(24)] HTTP response /products/mock-12 200
-8:29:18 PM [vike][request(25)] HTTP request: /products
-8:29:18 PM [vike][request(25)] HTTP response /products 200
-8:29:57 PM [vike][request(26)] HTTP request: /products/mock-11/edit
-8:29:57 PM [vike][request(26)] HTTP response /products/mock-11/edit 200
-8:31:07 PM [vike][request(27)] HTTP request: /products
-8:31:07 PM [vike][request(27)] HTTP response /products 200
+Production server running at http://localhost:12001
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:157:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:369:22)
+    at Object.keyGenerator (file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:630:20)
+    at file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:682:32
+    at async file:///workspace/vike-app/node_modules/express-rate-limit/dist/index.mjs:663:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
