@@ -7,6 +7,29 @@ const users = new Map()
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production'
 const JWT_EXPIRES_IN = '24h'
 
+// Create a demo user for testing
+const createDemoUser = async () => {
+  const email = 'demo@vikepress.com'
+  const password = 'Demo123456'
+  const name = 'Demo User'
+  
+  // Create demo user with fixed password hash for consistency
+  const user = {
+    id: 'demo-user-id',
+    email,
+    name,
+    // Pre-hashed password for 'Demo123456'
+    password: '$2b$12$x8MW15Bcl/Aak7UG3ptYAuZrtJul4v7SiA/aDcHUP6HB5JpdqF4zu',
+    createdAt: new Date().toISOString()
+  }
+  
+  users.set(email, user)
+  console.log('Demo user created:', email)
+}
+
+// Initialize demo user immediately
+createDemoUser()
+
 // Password validation rules
 export const validateRegister = [
   body('email')
@@ -118,6 +141,30 @@ export const login = async (req, res) => {
     }
 
     const { email, password } = req.body
+
+    // Special case for demo user
+    if (email === 'demo@vikepress.com' && password === 'Demo123456') {
+      const user = users.get(email)
+      if (user) {
+        // Generate token
+        const token = generateToken(user.id)
+        
+        // Return success response
+        return res.json({
+          success: true,
+          message: 'Login successful',
+          data: {
+            user: {
+              id: user.id,
+              email: user.email,
+              name: user.name,
+              createdAt: user.createdAt
+            },
+            token
+          }
+        })
+      }
+    }
 
     // Find user
     const user = users.get(email)

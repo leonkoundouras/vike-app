@@ -553,12 +553,20 @@ export default function ProductsPage() {
             <h1 style={styles.title} className="products-title">🛍️ Product Catalog</h1>
             <p style={styles.subtitle}>Browse and filter your product inventory</p>
           </div>
-          <button 
-            style={styles.createButton}
-            onClick={() => window.location.href = '/products/create'}
-          >
-            ➕ Add Product
-          </button>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <button 
+              style={styles.createButton}
+              onClick={() => window.location.href = '/products/create'}
+            >
+              ➕ Add Product
+            </button>
+            <button 
+              style={{...styles.createButton, backgroundColor: '#007bff'}}
+              onClick={() => window.location.href = '/products/categories'}
+            >
+              🏷️ Manage Categories
+            </button>
+          </div>
         </div>
 
         {/* Filters */}
