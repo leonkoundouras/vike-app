@@ -1,28 +1,255 @@
 /* Additional responsive styles for WordPress-like layout */
 
 /* Login and Register responsive styles */
+/* Extra small devices (phones, 480px and down) */
 @media (max-width: 480px) {
+  .wp-login-container {
+    padding: 0.5rem;
+    min-height: calc(100vh - 1rem);
+  }
+  
   .wp-login-form {
-    width: 90% !important;
+    width: 100% !important;
+    max-width: 320px !important;
     padding: 1.5rem !important;
     margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .wp-login-logo {
+    margin-bottom: 1rem !important;
+  }
+  
+  .wp-login-logo h2 {
+    font-size: 1.5rem !important;
   }
   
   .wp-login-title {
     font-size: 1.3rem !important;
+    margin-bottom: 1rem !important;
   }
   
   .wp-login-input {
     padding: 0.6rem !important;
     font-size: 0.9rem !important;
+    margin-bottom: 0.75rem !important;
+    border-width: 1px !important;
   }
   
   .wp-login-button {
     padding: 0.6rem !important;
+    font-size: 0.9rem !important;
+    margin-top: 0.5rem !important;
   }
   
   .wp-login-footer {
     font-size: 0.85rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  .wp-notice {
+    padding: 0.4rem !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* Improve touch targets for mobile */
+  .wp-login-input, 
+  .wp-login-button {
+    min-height: 44px !important;
+  }
+}
+
+/* Small devices (large phones, 481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .wp-login-container {
+    padding: 1rem;
+    min-height: calc(100vh - 2rem);
+  }
+  
+  .wp-login-form {
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 1.75rem !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 8px;
+  }
+  
+  .wp-login-logo h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  .wp-login-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .wp-login-input {
+    padding: 0.65rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 0.85rem !important;
+    border-width: 1px !important;
+  }
+  
+  .wp-login-button {
+    padding: 0.65rem !important;
+    font-size: 0.95rem !important;
+    margin-top: 0.75rem !important;
+    min-height: 44px !important;
+  }
+  
+  .wp-login-footer {
+    margin-top: 1.25rem !important;
+  }
+  
+  .wp-notice {
+    margin-bottom: 0.85rem !important;
+  }
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .wp-login-container {
+    background-image: linear-gradient(135deg, rgba(0, 115, 170, 0.1) 0%, rgba(0, 160, 210, 0.15) 100%);
+  }
+  
+  .wp-login-form {
+    max-width: 400px !important;
+    padding: 2rem !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+  
+  .wp-login-form:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18) !important;
+  }
+  
+  .wp-login-logo h2 {
+    font-size: 1.7rem !important;
+  }
+  
+  .wp-login-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .wp-login-input {
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+    border-width: 1px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+  
+  .wp-login-input:focus {
+    border-color: var(--wp-primary) !important;
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.15) !important;
+  }
+  
+  .wp-login-button {
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+    margin-top: 0.75rem !important;
+    min-height: 46px !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+  }
+  
+  .wp-login-button:hover {
+    background-color: var(--wp-primary-hover) !important;
+  }
+  
+  .wp-login-footer {
+    margin-top: 1.5rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .wp-notice {
+    margin-bottom: 1rem !important;
+    padding: 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .wp-login-container {
+    background-image: linear-gradient(135deg, rgba(0, 115, 170, 0.1) 0%, rgba(0, 160, 210, 0.2) 100%);
+  }
+  
+  .wp-login-form {
+    max-width: 450px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    border-radius: 10px;
+  }
+  
+  .wp-login-form:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.18) !important;
+  }
+  
+  .wp-login-logo h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  .wp-login-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+  
+  .wp-login-input {
+    padding: 0.85rem !important;
+    font-size: 1.05rem !important;
+    margin-bottom: 1.25rem !important;
+    border-width: 1px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    border-radius: 4px !important;
+  }
+  
+  .wp-login-input:focus {
+    border-color: var(--wp-primary) !important;
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.2) !important;
+  }
+  
+  .wp-login-button {
+    padding: 0.85rem !important;
+    font-size: 1.05rem !important;
+    margin-top: 1rem !important;
+    min-height: 48px !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+    border-radius: 4px !important;
+  }
+  
+  .wp-login-button:hover {
+    background-color: var(--wp-primary-hover) !important;
+  }
+  
+  .wp-login-button:active {
+    transform: scale(0.98) !important;
+  }
+  
+  .wp-login-footer {
+    margin-top: 1.75rem !important;
+    font-size: 1rem !important;
+  }
+  
+  .wp-notice {
+    margin-bottom: 1.25rem !important;
+    padding: 0.6rem !important;
+    font-size: 0.95rem !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Improve keyboard navigation */
+  .wp-login-input:focus-visible,
+  .wp-login-button:focus-visible,
+  .wp-login-footer a:focus-visible {
+    outline: 2px solid var(--wp-primary) !important;
+    outline-offset: 2px !important;
   }
 }
 
@@ -213,6 +440,8 @@
     --wp-bg: #1d2327;
     --wp-light-bg: #2c3338;
     --wp-border: #3c434a;
+    --wp-error: #f55a4e;
+    --wp-success: #4ac18e;
   }
   
   body.wp-dark-mode .wp-card,
@@ -235,6 +464,89 @@
   body.wp-dark-mode .wp-table tr:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
+  
+  /* Dark mode login styles */
+  body.wp-dark-mode .wp-login-container {
+    background-color: #1d2327;
+    background-image: linear-gradient(135deg, rgba(0, 115, 170, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+  
+  body.wp-dark-mode .wp-login-form {
+    background-color: #2c3338;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3c434a;
+  }
+  
+  body.wp-dark-mode .wp-login-logo h2 {
+    color: #00a0d2;
+  }
+  
+  body.wp-dark-mode .wp-login-title {
+    color: #f0f0f1;
+  }
+  
+  body.wp-dark-mode .wp-login-input {
+    background-color: #1d2327;
+    border-color: #3c434a;
+    color: #f0f0f1;
+  }
+  
+  body.wp-dark-mode .wp-login-input::placeholder {
+    color: #8c8f94;
+  }
+  
+  body.wp-dark-mode .wp-login-input:focus {
+    border-color: #00a0d2;
+    box-shadow: 0 0 0 1px rgba(0, 160, 210, 0.4);
+  }
+  
+  body.wp-dark-mode .wp-login-input.wp-input-error {
+    background-color: rgba(220, 50, 50, 0.1);
+    border-color: var(--wp-error);
+  }
+  
+  body.wp-dark-mode .wp-login-button {
+    background-color: #0073aa;
+  }
+  
+  body.wp-dark-mode .wp-login-button:hover {
+    background-color: #00a0d2;
+  }
+  
+  body.wp-dark-mode .wp-login-footer {
+    color: #bbc8d4;
+  }
+  
+  body.wp-dark-mode .wp-login-footer a {
+    color: #00a0d2;
+  }
+  
+  body.wp-dark-mode .wp-login-footer a:hover {
+    color: #00c6ff;
+  }
+  
+  body.wp-dark-mode .wp-notice {
+    background-color: #2c3338;
+    border-color: #3c434a;
+  }
+  
+  body.wp-dark-mode .wp-notice-error {
+    border-left-color: var(--wp-error);
+    color: #f0f0f1;
+  }
+  
+  body.wp-dark-mode .wp-notice-success {
+    border-left-color: var(--wp-success);
+    color: #f0f0f1;
+  }
+  
+  /* Dark mode focus states */
+  body.wp-dark-mode .wp-login-input:focus-visible,
+  body.wp-dark-mode .wp-login-button:focus-visible,
+  body.wp-dark-mode .wp-login-footer a:focus-visible {
+    outline: 2px solid #00a0d2;
+    outline-offset: 2px;
+  }
 }
 
 /* High contrast mode */
@@ -252,6 +564,75 @@
   .button {
     border: 1px solid transparent;
   }
+  
+  /* High contrast login form styles */
+  .wp-login-form {
+    border: 2px solid;
+    box-shadow: none !important;
+  }
+  
+  .wp-login-input {
+    border: 1px solid;
+    box-shadow: none !important;
+  }
+  
+  .wp-login-input:focus {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+  
+  .wp-login-input.wp-input-error {
+    border: 2px solid;
+    border-color: CanvasText;
+  }
+  
+  .wp-login-button {
+    border: 1px solid;
+    background-color: ButtonText !important;
+    color: ButtonFace !important;
+  }
+  
+  .wp-login-button:hover,
+  .wp-login-button:focus {
+    background-color: Highlight !important;
+    color: HighlightText !important;
+  }
+  
+  .wp-notice {
+    border-left-width: 4px;
+    border: 1px solid;
+  }
+  
+  .wp-login-footer a {
+    text-decoration: underline;
+    color: LinkText !important;
+  }
+  
+  .wp-login-footer a:hover,
+  .wp-login-footer a:focus {
+    color: HighlightText !important;
+    background-color: Highlight !important;
+  }
+  
+  /* Ensure all text is visible */
+  .wp-login-title,
+  .wp-login-logo h2,
+  .wp-form-label,
+  .wp-login-footer {
+    color: CanvasText !important;
+  }
+  
+  /* Ensure error messages are visible */
+  .wp-notice-error {
+    border-color: CanvasText;
+    color: CanvasText !important;
+  }
+  
+  /* Ensure focus states are visible */
+  *:focus {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px !important;
+  }
 }
 
 /* Reduced motion preferences */
@@ -260,6 +641,43 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Specifically for login form */
+  .wp-login-form {
+    transition: none !important;
+  }
+  
+  .wp-login-form:hover {
+    transform: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .wp-login-button {
+    transition: none !important;
+  }
+  
+  .wp-login-button:active {
+    transform: none !important;
+  }
+  
+  .wp-login-button:hover {
+    background-color: var(--wp-primary) !important;
+  }
+  
+  .wp-login-input {
+    transition: none !important;
+  }
+  
+  /* Alternative visual feedback for hover states */
+  .wp-login-button:hover {
+    border-width: 2px !important;
+  }
+  
+  .wp-login-footer a:hover {
+    text-decoration: underline !important;
+    font-weight: bold !important;
   }
 }
 
@@ -275,6 +693,83 @@ select:focus,
 textarea:focus {
   outline: 2px solid var(--wp-primary);
   outline-offset: 2px;
+}
+
+/* Login form specific accessibility improvements */
+.wp-login-input:focus {
+  outline: 2px solid var(--wp-primary);
+  outline-offset: 2px;
+  border-color: var(--wp-primary);
+}
+
+.wp-login-input.wp-input-error:focus {
+  outline: 2px solid var(--wp-error);
+  outline-offset: 2px;
+  border-color: var(--wp-error);
+}
+
+.wp-login-button:focus {
+  outline: 2px solid white;
+  outline-offset: -4px;
+  box-shadow: 0 0 0 2px var(--wp-primary);
+}
+
+/* Focus visible only when using keyboard */
+@media (hover: hover) {
+  .wp-login-input:focus-visible,
+  .wp-login-button:focus-visible,
+  .wp-login-footer a:focus-visible {
+    outline: 2px solid var(--wp-primary);
+    outline-offset: 2px;
+  }
+  
+  .wp-login-input:focus:not(:focus-visible),
+  .wp-login-button:focus:not(:focus-visible),
+  .wp-login-footer a:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+/* Enhanced error states */
+.wp-login-input.wp-input-error {
+  border-color: var(--wp-error);
+  border-width: 1px;
+  background-color: rgba(220, 50, 50, 0.03);
+}
+
+.wp-notice-error {
+  background-color: rgba(220, 50, 50, 0.03);
+  border-left-color: var(--wp-error);
+  color: var(--wp-error);
+}
+
+.wp-notice-success {
+  background-color: rgba(70, 180, 80, 0.03);
+  border-left-color: var(--wp-success);
+  color: var(--wp-success);
+}
+
+/* Loading and disabled states */
+.wp-login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--wp-light-text);
+}
+
+/* Improved touch targets for all devices */
+@media (pointer: coarse) {
+  .wp-login-input,
+  .wp-login-button,
+  .wp-login-footer a {
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+  
+  .wp-login-footer a {
+    display: inline-block;
+    padding: 0.5rem;
+  }
 }
 
 /* Skip to content link for keyboard users */
